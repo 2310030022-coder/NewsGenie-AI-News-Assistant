@@ -1,42 +1,101 @@
-# NewsGenie – AI-Powered Information & News Assistant
+# 📰 NewsGenie – AI-Powered Information & News Assistant
 
-A Streamlit chatbot that routes general questions and news requests with LangGraph, retrieves articles using NewsAPI (Google News RSS fallback), searches web results using DDGS, and summarizes with Gemini (when configured).
+### Smart News. Intelligent Answers. One Platform.
 
-## Features
-- Chat with session conversation history
-- Automatic query differentiation (simple keyword heuristic, not an ML-trained classifier)
-- Tech / finance / sports categories
-- NewsAPI with RSS fallback and linked sources
-- Search-assisted Gemini responses
-- Missing-key, empty-results and service-error handling
+NewsGenie is an AI-powered news and information assistant developed using **Python, Streamlit, LangGraph, Google Gemini AI, and NewsAPI**. It combines intelligent conversations, categorized news discovery, and web search within a unified, user-friendly application.
 
-## Quickstart
-1. Install Python 3.11 or 3.12.
-2. Run `pip install -r requirements.txt`.
-3. Create `.streamlit/secrets.toml` using `secrets.example.toml` as a template.
-4. Get keys from https://aistudio.google.com/apikey and https://newsapi.org/register.
-5. Run `streamlit run app.py`.
+## 🔗 Live Project Links
 
-## Deploy
-1. Upload `app.py`, `requirements.txt`, `README.md`, `.gitignore`, and `secrets.example.toml` to a GitHub repository.
-2. Visit https://share.streamlit.io and deploy the repository with main file `app.py`.
-3. Under Advanced settings → Secrets, paste your actual TOML key assignments. Never upload your real `secrets.toml` or API keys to GitHub.
-4. Test the deployed app. NewsAPI's free Developer tier is intended for development/testing and may restrict production deployment; the app attempts a Google News RSS fallback.
+🌐 **Live Application:** [Launch NewsGenie AI Assistant](https://newsgenie-ai-news-assistant-2u7hpdm6faphbtqqjhf5k7.streamlit.app/)
 
-## Limitations
-- Automated misinformation detection is not implemented. The app provides publisher links and a cautious summarization prompt, but it **cannot guarantee accuracy**.
-- NewsAPI Developer responses may be delayed by 24 hours; RSS freshness varies. Do not present results as guaranteed instantaneous.
-- Heuristic classification can misroute requests; refine using intent classification for production.
-- DDGS and RSS endpoints may rate-limit or fail. Some publishers may block access.
-- No persistent database: conversation history is scoped to the Streamlit session.
-- API integrations require connectivity, valid keys where applicable, and external service availability.
+💻 **GitHub Repository:** [View Source Code](https://github.com/2310030022-coder/NewsGenie-AI-News-Assistant)
 
-## Architecture
-`Query → LangGraph classify → news/general → NewsAPI/RSS or DDGS → optional Gemini → Streamlit display + source links`
+## 📌 Project Overview
 
-## Demo prompts
-- Latest technology news about AI
-- Today's sports headlines
-- Latest finance news on inflation
-- Explain what machine learning is
-- What are the applications of generative AI?
+NewsGenie addresses the challenge of accessing relevant news and reliable information across multiple platforms.
+
+The application integrates conversational AI with news retrieval and external web search to deliver an accessible information-discovery experience.
+
+By combining LangGraph-based workflow orchestration, Gemini-powered responses, and news APIs, NewsGenie demonstrates how generative AI can be incorporated into a practical web application.
+
+## 🚀 Key Features
+
+- **AI-Powered Chatbot:** Generates conversational answers to general user queries using Google Gemini.
+- **News Discovery:** Retrieves news articles through NewsAPI.
+- **Multiple Categories:** Provides technology, finance, and sports news.
+- **Intelligent Query Routing:** Uses LangGraph to distinguish general questions from news-related requests.
+- **Web Search Integration:** Uses DuckDuckGo to retrieve supplementary information.
+- **News Fallback:** Supports Google News RSS when the primary news service is unavailable.
+- **Conversation History:** Maintains chat context using Streamlit session state.
+- **Source References:** Displays links to original news articles.
+- **Error Handling:** Manages missing API keys, unsuccessful API calls, and unavailable results.
+- **Interactive Interface:** Provides a responsive web application built with Streamlit.
+
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Core application development |
+| Streamlit | Interactive frontend |
+| Google Gemini AI | AI-powered conversational responses |
+| LangGraph | Query routing and workflow orchestration |
+| NewsAPI | News retrieval |
+| Google News RSS | Alternative news source |
+| DuckDuckGo Search | External information retrieval |
+| GitHub | Version control and project hosting |
+| Streamlit Community Cloud | Web application deployment |
+
+## ⚙️ System Architecture
+
+**User → Streamlit Interface → LangGraph Workflow → Query Classification**
+
+The workflow directs requests to the appropriate component:
+
+1. **General Questions:** Gemini AI processes user queries.
+2. **News Requests:** NewsAPI retrieves relevant articles.
+3. **API Fallback:** Google News RSS provides an alternative news source.
+4. **External Information:** DuckDuckGo search supplements information retrieval.
+5. **Response Display:** Streamlit presents results and maintains conversation history.
+
+## 📂 Project Structure
+
+```text
+NewsGenie-AI-News-Assistant/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── PROJECT_REPORT.md
+└── secrets.example.toml
+```
+
+## 💻 Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/2310030022-coder/NewsGenie-AI-News-Assistant.git
+cd NewsGenie-AI-News-Assistant
+```
+
+### 2. Install Required Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure API Keys
+
+Create a `.streamlit/secrets.toml` file containing:
+
+```toml
+GEMINI_API_KEY = "your_gemini_api_key"
+NEWS_API_KEY = "your_newsapi_key"
+```
+
+Keep actual API credentials private and never commit them to GitHub.
+
+### 4. Run the Application
+
+```bash
+stream
