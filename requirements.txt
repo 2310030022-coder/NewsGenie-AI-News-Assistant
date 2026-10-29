@@ -1,0 +1,5 @@
+streamlit>=1.40,<2
+langgraph>=0.6,<2
+requests>=2.31,<3
+feedparser>=6.0,<7
+ddgs>=9,<11
